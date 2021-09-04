@@ -1,14 +1,21 @@
 import { useState } from 'react';
 
+//UI Imports
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import './css/styles.css'
+
 const axios = require('axios');
 
+
+//uses async call to the backend for POSTing data 
 async function registerUser(credentials) {
     return axios.post('http://localhost:8080/users/signup', {
         method: 'POST',
         headers: {
          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(credentials)
+        body: credentials
     })
     .then(console.log('success'))
 }
@@ -26,25 +33,18 @@ function Signup(){
       		password
     	});
     }
-
+    //simple form for signup
     return(
-       <form onSubmit = {handleSubmit}>
-           <label>
-      			<p>Email</p>
-        		<input type="text" onChange={e => setEmail(e.target.value)} />
-        	</label>
-            <label>
-      			<p>Username</p>
-        		<input type="text" onChange={e => setUserName(e.target.value)} />
-        	</label>
-            <label>
-      			<p>Password</p>
-        		<input type="password" onChange={e => setPassword(e.target.value)}/> 
-        	</label>
-            <div>
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+        <div className="center">
+            <form onSubmit = {handleSubmit}>
+               <TextField className='margin-10' id="outlined-basic" label="EMAIL" variant="outlined" onChange={e => setEmail(e.target.value)} />
+                <TextField className='margin-10' id="outlined-basic" label="USERNAME" variant="outlined" onChange={e => setUserName(e.target.value)} />
+                <TextField className='margin-10' id="outlined-basic" type="password" label="PASSWORD" variant="outlined"onChange={e => setPassword(e.target.value)}/> 
+                <Button type='submit' className='left-40' variant="contained" color="primary">
+                        Submit
+                </Button>
+            </form>
+        </div>
     )
 }
 

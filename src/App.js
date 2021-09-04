@@ -1,32 +1,44 @@
+
+//essential components
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+//custom components
 import Login from './components/login.js'
 import Signup from './components/signup.js'
 import FlightSearch from './components/search.js'
 import Book from './components/book.js'
 import Result from './components/result.js'
-import { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import BookHistory from './components/book-history.js'
+
+//UI components
 import { Helmet } from 'react-helmet';
-
-// function setToken(userToken) {
-//   sessionStorage.setItem('token', JSON.stringify(userToken));
-// }
-
-// function getToken() {
-//   const tokenString = sessionStorage.getItem('token');
-//   const userToken = JSON.parse(tokenString);
-//   return userToken?.token
-// }
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 
 function App() {
 
-  // const token = getToken();
+  const history = useHistory()
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  const handleClickLogin = () => {
+    history.push('/login')
+  }
+
+  const handleClickSignup = () => {
+    history.push('/signup')
+  }
+
+  const handleClickHistory = () => {
+    history.push('/history')
+  }
 
   return (
     <div>
@@ -34,7 +46,20 @@ function App() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Helmet>
-      <BrowserRouter>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            Flight Booking Portal
+          </Typography>
+          <div style={{ float: "right" }}>
+            <Button onClick={handleClickLogin} color="inherit">Login</Button>
+            <Button onClick={handleClickSignup} color="inherit">Signup</Button>
+            <Button onClick={handleClickHistory} color="inherit">Booked History</Button>
+          </div>
+        </Toolbar>
+      </AppBar>
+
+      
           <Switch>
             <Route path="/login">
                <Login />
@@ -51,8 +76,11 @@ function App() {
             <Route path="/result">
               <Result />
             </Route>
+            <Route path='/history'>
+              <BookHistory />
+            </Route>
           </Switch>
-        </BrowserRouter>
+        
     </div>
   );
 }

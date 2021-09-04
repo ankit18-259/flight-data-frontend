@@ -8,11 +8,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Result from './result.js'
 const axios = require('axios')
 
-async function searchFlight(request) {
-	axios.get('http://localhost:8080/search', request).then(res => {
-      		console.log(res.data)
-		})
-}
 
 function FlightSearch() {
 
@@ -21,16 +16,15 @@ function FlightSearch() {
 	const [date, setDate] = useState()
 	let history = useHistory();
 
-
-
-	// const handleSubmit = async e => {
-
-	//     	history.push('/result')
-	//     }	
-
+	const handleSubmit = () => {
+      localStorage.setItem('source', source);
+      localStorage.setItem('destination', destination);
+      localStorage.setItem('date', date);
+      history.push('/result')
+   };
 	return(
 		<div>
-			<form className='margin-30' noValidate autoComplete="off">
+			<form onSubmit={ handleSubmit } className='margin-30' noValidate autoComplete="off">
   				<TextField className='margin-10' id="outlined-basic" label="SOURCE" variant="outlined" onChange={e => setSource(e.target.value)}/>
   				<br />				
   				<TextField className='margin-10' id="outlined-basic" label="DESTINATION" variant="outlined" onChange={e => setDestination(e.target.value)}/>
@@ -41,7 +35,6 @@ function FlightSearch() {
 					Submit
 				</Button>
 			</form>
-			<Result source={ source } destination={ destination } date={ date } />
 		</div>
 		)
 }
