@@ -12,7 +12,12 @@ import './css/styles.css'
 const axios = require('axios');
 
 
-//async function for handling login data
+/**
+ * Function for logging in the user using a post request
+ * initiated by the axios library
+ * @param {Object} credentials login details of the user to log the user in
+ */
+
 async function loginUser(credentials) {
 	axios.post('http://localhost:8080/users/login', {
 	 	method: 'POST',
@@ -28,8 +33,12 @@ async function loginUser(credentials) {
 
 
 
-//functional component for displaying form for login and 
-//handling various other state related tasks and api calls
+
+/**
+ * functional component for displaying form for login and 
+ * handling various other state related tasks and api calls
+ * @returns {HTML} HTML form for searching Flight Data
+ */
 
 function Login() {
 

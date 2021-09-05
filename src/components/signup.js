@@ -8,7 +8,12 @@ import './css/styles.css'
 const axios = require('axios');
 
 
-//uses async call to the backend for POSTing data 
+/**
+ * Function for signing up the user using a post request
+ * initiated by the axios library
+ * @param {Object} credentials signup details of the user to sign up the user
+ */
+
 async function registerUser(credentials) {
     return axios.post('http://localhost:8080/users/signup', {
         method: 'POST',
@@ -20,6 +25,9 @@ async function registerUser(credentials) {
     .then(console.log('success'))
 }
 
+/**
+ * @returns {HTML} HTML form for Signing up
+ */
 function Signup(){
     const [email, setEmail] = useState();
     const [username, setUserName] = useState();

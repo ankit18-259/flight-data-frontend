@@ -6,7 +6,10 @@ import { useState } from 'react';
 
 const axios = require('axios')
 
-//book call to the backend for registering the booking of the itenerary 
+/**
+ * book call to the backend for registering the booking of the itenerary
+ * @param {Object} data booking data using localstorage and data entered by user
+ */ 
 async function bookFlight(data) {
 	axios.post('http://localhost:8080/book/book',{
 		headers: {
@@ -17,6 +20,9 @@ async function bookFlight(data) {
 	.then(console.log(data))
 }
 
+/**
+ * @returns {HTML} HTML form for booking the flight
+ */
 
 function Book() {
 

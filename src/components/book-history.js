@@ -13,8 +13,13 @@ import Container from '@material-ui/core/Container';
 //Using axios for api requests
 const axios = require('axios')
 
+/**
+ * class component used for ease of state data handling
+ * Uses States and localstorage to present data
+ * returns booked history data
+ * @class
+ */
 
-//class component used for ease of state data handling
 class BookHistory extends Component {
 
 	//defined a state 

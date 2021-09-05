@@ -8,6 +8,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Result from './result.js'
 const axios = require('axios')
 
+/**
+ * @returns {HTML} HTML form for searching Flight Data
+ */
 
 function FlightSearch() {
 

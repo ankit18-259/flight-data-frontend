@@ -16,7 +16,12 @@ import Container from '@material-ui/core/Container';
 //using axios for api calls
 const axios = require('axios')
 
-//class component used
+
+
+/**
+ * Uses States and localstorage to present data
+ * @class
+ */
 class Result extends Component {
 
 	//defined state for the app
@@ -25,7 +30,6 @@ class Result extends Component {
 		redirect: null
 	}
 
-	//constructor used to query data
 	constructor() {
 		super();
 		//using localstorage for communication of search data from previous page

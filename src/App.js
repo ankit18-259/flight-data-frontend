@@ -23,6 +23,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 
+/**
+ * Root function of the Frontend Project
+ * used react-router-dom for routing 
+ * UI components by Material UI
+ * Axios for API calls
+ * Uses state and localstorage for storing and presenting data
+ */
 
 function App() {
 
