@@ -32,8 +32,7 @@ function FlightSearch() {
   				<br />				
   				<TextField className='margin-10' id="outlined-basic" label="DESTINATION" variant="outlined" onChange={e => setDestination(e.target.value)}/>
   				<br />
-  				<TextField className='margin-10' id="outlined-basic" label="DATE" variant="outlined" onChange={e => setDate(e.target.value)}/>
-  				
+  				<TextField id="date" label="TRAVEL DATE" type="date" variant="outlined" InputLabelProps={{ shrink: true, }} onChange={e => setDate(e.target.value)} />  				
   				<Button type='submit' className='left-40' variant="contained" color="primary">
 					Submit
 				</Button>
